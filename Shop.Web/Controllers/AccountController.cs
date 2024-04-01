@@ -26,6 +26,7 @@ public class AccountController : SiteBaseController
     [HttpGet("register")]
     public IActionResult Register()
     {
+        
         return View();
     }
 
@@ -38,6 +39,7 @@ public class AccountController : SiteBaseController
             switch (result)
             {
                 case RegisterUserResult.MobileExists:
+                    TempData[ErrorMessage] = "";
                     break;
                 case RegisterUserResult.Success:
                     break;

@@ -1,16 +1,31 @@
-﻿namespace Shop.Infra.Ioc;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Shop.Application.Interfaces;
+using Shop.Application.Services;
+using Shop.Domain.Interfaces;
+using Shop.Infra.Data.Repositories;
+
+namespace Shop.Infra.Ioc;
 
 public class DependencyContainer
 {
-    #region services
+    public static void RegisterService(IServiceCollection services)
+    {
+        #region services
 
-    #endregion
+        services.AddScoped<IUserService, UserService>();
 
-    #region repositories
+        #endregion
 
-    #endregion
+        #region repositories
 
-    #region tools
+        services.AddScoped<IUserRepository, UserRepository>();
 
-    #endregion
+        #endregion
+
+        #region tools
+
+        services.AddScoped<IPasswordHelper, PasswordHelper>();
+
+        #endregion
+    }
 }

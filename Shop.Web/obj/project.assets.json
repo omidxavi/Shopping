@@ -1174,6 +1174,11 @@
       "Shop.Infra.Ioc/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "7.0.0",
+          "Shop.Application": "1.0.0",
+          "Shop.Infra.Data": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Shop.Infra.Ioc.dll": {}
         },

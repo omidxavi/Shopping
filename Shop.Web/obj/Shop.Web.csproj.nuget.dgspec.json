@@ -214,7 +214,14 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\Code Repository\\practice\\shop\\Shop.Application\\Shop.Application.csproj": {
+                "projectPath": "E:\\Code Repository\\practice\\shop\\Shop.Application\\Shop.Application.csproj"
+              },
+              "E:\\Code Repository\\practice\\shop\\Shop.Infra.Data\\Shop.Infra.Data.csproj": {
+                "projectPath": "E:\\Code Repository\\practice\\shop\\Shop.Infra.Data\\Shop.Infra.Data.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -226,6 +233,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -1,8 +1,19 @@
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
+using Shop.Application.Interfaces;
+using Shop.Application.Services;
+using Shop.Domain.Interfaces;
 using Shop.Infra.Data.Context;
+using Shop.Infra.Data.Repositories;
+using Shop.Infra.Ioc;
+using static Shop.Infra.Ioc.DependencyContainer;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -31,7 +42,16 @@ builder.Services.AddAuthentication(options =>
 
 #endregion
 
+#region Ioc
+
+builder.Services.AddSingleton<DependencyContainer>();
+#endregion
+
+builder.Services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(allowedRanges: new[]
+    { UnicodeRanges.BasicLatin, UnicodeRanges.Arabic, }));
+
 var app = builder.Build();
+
 
 
 // Configure the HTTP request pipeline.
@@ -41,6 +61,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -54,3 +76,13 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+
+#region Ioc
+
+void RegisterService(IServiceCollection services)
+{
+    DependencyContainer.RegisterService(services);
+}
+
+#endregion
