@@ -1,0 +1,11 @@
+E:\Code Repository\practice\shop\Shop.Application\bin\Debug\net7.0\Shop.Application.deps.json
+E:\Code Repository\practice\shop\Shop.Application\bin\Debug\net7.0\Shop.Application.dll
+E:\Code Repository\practice\shop\Shop.Application\bin\Debug\net7.0\Shop.Application.pdb
+E:\Code Repository\practice\shop\Shop.Application\obj\Debug\net7.0\Shop.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\Code Repository\practice\shop\Shop.Application\obj\Debug\net7.0\Shop.Application.AssemblyInfoInputs.cache
+E:\Code Repository\practice\shop\Shop.Application\obj\Debug\net7.0\Shop.Application.AssemblyInfo.cs
+E:\Code Repository\practice\shop\Shop.Application\obj\Debug\net7.0\Shop.Application.csproj.CoreCompileInputs.cache
+E:\Code Repository\practice\shop\Shop.Application\obj\Debug\net7.0\Shop.Application.dll
+E:\Code Repository\practice\shop\Shop.Application\obj\Debug\net7.0\refint\Shop.Application.dll
+E:\Code Repository\practice\shop\Shop.Application\obj\Debug\net7.0\Shop.Application.pdb
+E:\Code Repository\practice\shop\Shop.Application\obj\Debug\net7.0\ref\Shop.Application.dll

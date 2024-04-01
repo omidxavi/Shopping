@@ -1,0 +1,17 @@
+E:\Code Repository\practice\shop\Shop.Infra.Data\bin\Debug\net7.0\Shop.Infra.Data.deps.json
+E:\Code Repository\practice\shop\Shop.Infra.Data\bin\Debug\net7.0\Shop.Infra.Data.runtimeconfig.json
+E:\Code Repository\practice\shop\Shop.Infra.Data\bin\Debug\net7.0\Shop.Infra.Data.dll
+E:\Code Repository\practice\shop\Shop.Infra.Data\bin\Debug\net7.0\Shop.Infra.Data.pdb
+E:\Code Repository\practice\shop\Shop.Infra.Data\obj\Debug\net7.0\Shop.Infra.Data.csproj.AssemblyReference.cache
+E:\Code Repository\practice\shop\Shop.Infra.Data\obj\Debug\net7.0\Shop.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+E:\Code Repository\practice\shop\Shop.Infra.Data\obj\Debug\net7.0\Shop.Infra.Data.AssemblyInfoInputs.cache
+E:\Code Repository\practice\shop\Shop.Infra.Data\obj\Debug\net7.0\Shop.Infra.Data.AssemblyInfo.cs
+E:\Code Repository\practice\shop\Shop.Infra.Data\obj\Debug\net7.0\Shop.Infra.Data.csproj.CoreCompileInputs.cache
+E:\Code Repository\practice\shop\Shop.Infra.Data\obj\Debug\net7.0\Shop.Infra.Data.dll
+E:\Code Repository\practice\shop\Shop.Infra.Data\obj\Debug\net7.0\refint\Shop.Infra.Data.dll
+E:\Code Repository\practice\shop\Shop.Infra.Data\obj\Debug\net7.0\Shop.Infra.Data.pdb
+E:\Code Repository\practice\shop\Shop.Infra.Data\obj\Debug\net7.0\Shop.Infra.Data.genruntimeconfig.cache
+E:\Code Repository\practice\shop\Shop.Infra.Data\obj\Debug\net7.0\ref\Shop.Infra.Data.dll
+E:\Code Repository\practice\shop\Shop.Infra.Data\bin\Debug\net7.0\Shop.Domain.dll
+E:\Code Repository\practice\shop\Shop.Infra.Data\bin\Debug\net7.0\Shop.Domain.pdb
+E:\Code Repository\practice\shop\Shop.Infra.Data\obj\Debug\net7.0\Shop.Infra.Data.csproj.CopyComplete
