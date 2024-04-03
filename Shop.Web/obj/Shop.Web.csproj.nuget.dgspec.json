@@ -306,6 +306,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "IisExpressTestKit": {
+              "target": "Package",
+              "version": "[0.6.0, )"
+            },
+            "Microsoft.AspNetCore.Hosting.WindowsServices": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.0, )"

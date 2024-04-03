@@ -9,3 +9,11 @@ E:\Code Repository\practice\shop\Shop.Infra.Ioc\obj\Debug\net7.0\Shop.Infra.Ioc.
 E:\Code Repository\practice\shop\Shop.Infra.Ioc\obj\Debug\net7.0\refint\Shop.Infra.Ioc.dll
 E:\Code Repository\practice\shop\Shop.Infra.Ioc\obj\Debug\net7.0\Shop.Infra.Ioc.pdb
 E:\Code Repository\practice\shop\Shop.Infra.Ioc\obj\Debug\net7.0\ref\Shop.Infra.Ioc.dll
+E:\Code Repository\practice\shop\Shop.Infra.Ioc\bin\Debug\net7.0\Shop.Application.dll
+E:\Code Repository\practice\shop\Shop.Infra.Ioc\bin\Debug\net7.0\Shop.Domain.dll
+E:\Code Repository\practice\shop\Shop.Infra.Ioc\bin\Debug\net7.0\Shop.Infra.Data.dll
+E:\Code Repository\practice\shop\Shop.Infra.Ioc\bin\Debug\net7.0\Shop.Application.pdb
+E:\Code Repository\practice\shop\Shop.Infra.Ioc\bin\Debug\net7.0\Shop.Infra.Data.pdb
+E:\Code Repository\practice\shop\Shop.Infra.Ioc\bin\Debug\net7.0\Shop.Domain.pdb
+E:\Code Repository\practice\shop\Shop.Infra.Ioc\obj\Debug\net7.0\Shop.Infra.Ioc.csproj.AssemblyReference.cache
+E:\Code Repository\practice\shop\Shop.Infra.Ioc\obj\Debug\net7.0\Shop.Infra.Ioc.csproj.CopyComplete

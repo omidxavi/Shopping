@@ -39,10 +39,12 @@ public class AccountController : SiteBaseController
             switch (result)
             {
                 case RegisterUserResult.MobileExists:
-                    TempData[ErrorMessage] = "";
+                    TempData[ErrorMessage] = "شماره تلفن وارد شده قبلا در سیستم ثبت شده است";
                     break;
                 case RegisterUserResult.Success:
-                    break;
+                    TempData[SuccessMessage] = "ثبت نام شما با موفقیت انجام شد";
+                    //in this section register code method will replace with redirect to home page
+                    return Redirect("/");
                 default:
                     break;
             }
@@ -69,34 +71,49 @@ public class AccountController : SiteBaseController
             var result = await _userService.LoginUser(login);
             switch (result)
             {
-                case LoginUserResult.NotFound :
+                case LoginUserResult.NotFound:
+                    TempData[WarningMessage] = "کاربری یافت نشد";
                     break;
-                case LoginUserResult.NotActive :
+                case LoginUserResult.NotActive:
+                    TempData[ErrorMessage] = "حساب کاربری شما فعال نمیباشد";
                     break;
-                case LoginUserResult.IsBlocked :
+                case LoginUserResult.IsBlocked:
+                    TempData[WarningMessage] = "حساب شما توسط واحد پشتیبانی مسدود شده است";
+                    TempData[InfoMessage] = "جهت اطلاع بیشتر لطفا به قسمت تماس باما مراجعه کنید";
                     break;
-                case LoginUserResult.Success :
+                case LoginUserResult.Success:
                     var user = await _userService.GetUserByPhoneNumber(login.PhoneNumber);
-                    var claims = new List<Claim>()
+                    var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Name, user.PhoneNumber),
-                        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+                        new Claim(ClaimTypes.Name,user.PhoneNumber),
+                        new Claim(ClaimTypes.NameIdentifier,user.Id.ToString())
                     };
                     var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     var principle = new ClaimsPrincipal(identity);
-                    var properties = new AuthenticationProperties()
+                    var properties = new AuthenticationProperties
                     {
                         IsPersistent = login.RememberMe
                     };
                     await HttpContext.SignInAsync(principle, properties);
+                    TempData[SuccessMessage] = "شما با موفقیت وارد شدید";
                     return Redirect("/");
-                
-                    
             }
         }
 
         return View(login);
     } 
+
+    #endregion
+
+    #region log-out
+
+    [HttpGet("log-out")]
+    public async Task<IActionResult> LogOut()
+    {
+        await HttpContext.SignOutAsync();
+        TempData[InfoMessage] = "شما با موفقیت خارج شدید";
+        return Redirect("/");
+    }
 
     #endregion
 

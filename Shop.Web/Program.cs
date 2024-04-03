@@ -45,6 +45,11 @@ builder.Services.AddAuthentication(options =>
 #region Ioc
 
 builder.Services.AddSingleton<DependencyContainer>();
+
+builder.Services.AddScoped<IPasswordHelper, PasswordHelper>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+
 #endregion
 
 builder.Services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(allowedRanges: new[]
@@ -70,6 +75,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapControllerRoute(
     name: "default",
@@ -84,5 +90,4 @@ void RegisterService(IServiceCollection services)
 {
     DependencyContainer.RegisterService(services);
 }
-
 #endregion

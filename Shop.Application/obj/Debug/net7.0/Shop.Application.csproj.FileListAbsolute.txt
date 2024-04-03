@@ -9,3 +9,7 @@ E:\Code Repository\practice\shop\Shop.Application\obj\Debug\net7.0\Shop.Applicat
 E:\Code Repository\practice\shop\Shop.Application\obj\Debug\net7.0\refint\Shop.Application.dll
 E:\Code Repository\practice\shop\Shop.Application\obj\Debug\net7.0\Shop.Application.pdb
 E:\Code Repository\practice\shop\Shop.Application\obj\Debug\net7.0\ref\Shop.Application.dll
+E:\Code Repository\practice\shop\Shop.Application\bin\Debug\net7.0\Shop.Domain.dll
+E:\Code Repository\practice\shop\Shop.Application\bin\Debug\net7.0\Shop.Domain.pdb
+E:\Code Repository\practice\shop\Shop.Application\obj\Debug\net7.0\Shop.Application.csproj.AssemblyReference.cache
+E:\Code Repository\practice\shop\Shop.Application\obj\Debug\net7.0\Shop.Application.csproj.CopyComplete
