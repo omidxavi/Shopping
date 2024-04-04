@@ -12,5 +12,7 @@ public interface IUserService
     
     Task<User> GetUserByPhoneNumber(string phoneNumber);
 
+    Task<ActiveAccountResult> ActiveAccount(ActiveAccountViewModel activeAccount);
+
     #endregion
 }

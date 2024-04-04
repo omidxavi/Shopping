@@ -30,7 +30,6 @@ public class AccountController : SiteBaseController
     [HttpGet("register")]
     public IActionResult Register()
     {
-        
         return View();
     }
 
@@ -46,6 +45,7 @@ public class AccountController : SiteBaseController
         }
 
         #endregion
+
         if (ModelState.IsValid)
         {
             var result = await _userService.RegisterUser(register);
@@ -56,8 +56,7 @@ public class AccountController : SiteBaseController
                     break;
                 case RegisterUserResult.Success:
                     TempData[SuccessMessage] = "ثبت نام شما با موفقیت انجام شد";
-                    //in this section register code method will replace with redirect to home page
-                    return Redirect("/");
+                    return RedirectToAction("ActiveAccount", "Account", new { mobile = register.PhoneNumber });
                 default:
                     break;
             }
@@ -84,6 +83,7 @@ public class AccountController : SiteBaseController
             TempData[ErrorMessage] = "کد کپچای وارد شده معتبر نمیباشد";
             return View(login);
         }
+
         if (ModelState.IsValid)
         {
             var result = await _userService.LoginUser(login);
@@ -103,8 +103,8 @@ public class AccountController : SiteBaseController
                     var user = await _userService.GetUserByPhoneNumber(login.PhoneNumber);
                     var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Name,user.PhoneNumber),
-                        new Claim(ClaimTypes.NameIdentifier,user.Id.ToString())
+                        new Claim(ClaimTypes.Name, user.PhoneNumber),
+                        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
                     };
                     var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     var principle = new ClaimsPrincipal(identity);
@@ -119,7 +119,53 @@ public class AccountController : SiteBaseController
         }
 
         return View(login);
-    } 
+    }
+
+    #endregion
+
+    #region activate account
+
+    [HttpGet("activate-account/{mobile}")]
+    public async Task<IActionResult> ActiveAccount(string mobile)
+    {
+        if (User.Identity.IsAuthenticated) return Redirect("/");
+        var activeAccount = new ActiveAccountViewModel { PhoneNumber = mobile };
+        return View();
+    }
+
+    [HttpPost("activate-account/{mobile}"), ValidateAntiForgeryToken]
+    public async Task<IActionResult> ActiveAccount(ActiveAccountViewModel activeAccount)
+    {
+        #region captcha validator
+
+        if (!await _captchaValidator.IsCaptchaPassedAsync(activeAccount.Token))
+        {
+            TempData[ErrorMessage] = "کد کپچای وارد شده معتبر نمیباشد";
+            return View(activeAccount);
+        }
+
+        #endregion
+
+        if (ModelState.IsValid)
+        {
+            var result = await _userService.ActiveAccount(activeAccount);
+            switch (result)
+            {
+                case ActiveAccountResult.Error:
+                    TempData[ErrorMessage] = "عملیات فعال کردن حساب کابری ناموفق بود";
+                    break;
+                case ActiveAccountResult.NotFound:
+                    TempData[WarningMessage] = "کاربری با مشخصات وارد شده یافت نشد";
+                    break;
+                case ActiveAccountResult.Success:
+                    TempData[SuccessMessage] = "حساب کاربری شما با موفقیت فعال شد";
+                    TempData[InfoMessage] = "لطفا جهت ادامه فرایند وارد حساب کاربری خود شوید";
+                    return RedirectToAction("Login");
+            }
+        }
+
+        return View(activeAccount);
+    }
 
     #endregion
 
@@ -134,5 +180,4 @@ public class AccountController : SiteBaseController
     }
 
     #endregion
-
 }

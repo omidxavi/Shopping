@@ -9,13 +9,15 @@ public class UserService : IUserService
 {
     private readonly IUserRepository _userRepository;
     private readonly IPasswordHelper _passwordHelper;
+    private readonly ISmsService _smsService;
 
     #region constractor
 
-    public UserService(IUserRepository userRepository, IPasswordHelper passwordHelper)
+    public UserService(IUserRepository userRepository, IPasswordHelper passwordHelper, ISmsService smsService)
     {
         _userRepository = userRepository;
         _passwordHelper = passwordHelper;
+        _smsService = smsService;
     }
 
     #endregion
@@ -40,6 +42,8 @@ public class UserService : IUserService
             };
             await _userRepository.CreateUser(user);
             await _userRepository.SaveChanges();
+
+            await _smsService.SmsVerification(user.PhoneNumber, user.MobileActiveCode);
             return RegisterUserResult.Success;
         }
 
@@ -56,10 +60,27 @@ public class UserService : IUserService
 
         return LoginUserResult.Success;
     }
-    
+
     public async Task<User> GetUserByPhoneNumber(string phoneNumber)
     {
         return await _userRepository.GetUserByPhoneNumber(phoneNumber);
+    }
+
+    public async Task<ActiveAccountResult> ActiveAccount(ActiveAccountViewModel activeAccount)
+    {
+        var user = await _userRepository.GetUserByPhoneNumber(activeAccount.PhoneNumber);
+        if (user == null) return ActiveAccountResult.NotFound;
+        if (user.MobileActiveCode == activeAccount.ActiveCode)
+        {
+            user.MobileActiveCode = new Random().Next(10000, 99999).ToString();
+            user.IsMobileActive = true;
+            _userRepository.UpdateUser(user);
+            await _userRepository.SaveChanges();
+
+            return ActiveAccountResult.Success;
+        }
+
+        return ActiveAccountResult.Error;
     }
 
     #endregion

@@ -11,6 +11,8 @@ public interface IUserRepository
     Task SaveChanges();
     Task<User> GetUserByPhoneNumber(string phoneNumber);
 
+    void UpdateUser(User user);
+
     #endregion
 
 }

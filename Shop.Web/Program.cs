@@ -51,7 +51,7 @@ builder.Services.AddSingleton<DependencyContainer>();
 builder.Services.AddScoped<IPasswordHelper, PasswordHelper>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
-
+builder.Services.AddScoped<ISmsService, SmsService>();
 builder.Services.AddHttpClient<ICaptchaValidator, GoogleReCaptchaValidator>();
 
 #endregion

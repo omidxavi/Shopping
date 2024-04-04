@@ -35,6 +35,11 @@ public class UserRepository : IUserRepository
         return await _context.Users.AsQueryable().SingleOrDefaultAsync(c => c.PhoneNumber == phoneNumber);
     }
 
+    public void UpdateUser(User user)
+    {
+        _context.Users.Update(user);
+    }
+
     public async Task SaveChanges()
     {
         await _context.SaveChangesAsync();

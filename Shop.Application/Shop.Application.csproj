@@ -10,4 +10,8 @@
       <ProjectReference Include="..\Shop.Domain\Shop.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="KavenegarDotNetCore" Version="1.0.7" />
+    </ItemGroup>
+
 </Project>
