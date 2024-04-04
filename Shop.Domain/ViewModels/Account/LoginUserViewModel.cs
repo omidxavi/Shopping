@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Shop.Domain.ViewModels.Site;
 
 namespace Shop.Domain.ViewModels.Account;
 
-public class LoginUserViewModel
+public class LoginUserViewModel : Recaptcha
 {
     [Display(Name = "شماره تلفن همراه")]
     [Required(ErrorMessage = "لطفا {0} را وارد کنید")]

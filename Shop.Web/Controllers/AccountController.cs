@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Shop.Application.Interfaces;
 using Shop.Domain.ViewModels.Account;
 using System.Threading.Tasks;
+using GoogleReCaptcha.V3;
+using GoogleReCaptcha.V3.Interface;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
@@ -13,10 +15,12 @@ public class AccountController : SiteBaseController
     #region constractor
 
     private readonly IUserService _userService;
+    private readonly ICaptchaValidator _captchaValidator;
 
-    public AccountController(IUserService userService)
+    public AccountController(IUserService userService, ICaptchaValidator captchaValidator)
     {
         _userService = userService;
+        _captchaValidator = captchaValidator;
     }
 
     #endregion
@@ -33,6 +37,15 @@ public class AccountController : SiteBaseController
     [HttpPost("register"), ValidateAntiForgeryToken]
     public async Task<IActionResult> Register(RegisterUserViewModel register)
     {
+        #region captcha validator
+
+        if (!await _captchaValidator.IsCaptchaPassedAsync(register.Token))
+        {
+            TempData[ErrorMessage] = "کد کپچای وارد شده معتبر نمیباشد";
+            return View(register);
+        }
+
+        #endregion
         if (ModelState.IsValid)
         {
             var result = await _userService.RegisterUser(register);
@@ -66,6 +79,11 @@ public class AccountController : SiteBaseController
     [HttpPost("login"), ValidateAntiForgeryToken]
     public async Task<IActionResult> Login(LoginUserViewModel login)
     {
+        if (!await _captchaValidator.IsCaptchaPassedAsync(login.Token))
+        {
+            TempData[ErrorMessage] = "کد کپچای وارد شده معتبر نمیباشد";
+            return View(login);
+        }
         if (ModelState.IsValid)
         {
             var result = await _userService.LoginUser(login);

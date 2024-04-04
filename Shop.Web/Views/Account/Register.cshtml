@@ -7,6 +7,7 @@
 @section scripts
 {
     <partial name="_ValidationScripts"/>
+    <partial name="_CaptchaScript"/>
 }
 
 <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
@@ -27,6 +28,7 @@
             <div class="form-tab">
                 <div class="tab-content">
                     <form asp-controller="Account" asp-action="Register" method="post">
+                        <partial name="_CaptchaInput" />
                         <div class="form-group">
                             <label for="singin-email-2">شماره تلفن همراه</label>
                             <input type="text" asp-for="PhoneNumber" class="form-control">
