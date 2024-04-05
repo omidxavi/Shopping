@@ -1,4 +1,7 @@
-﻿using Shop.Application.Interfaces;
+﻿using Microsoft.AspNetCore.Http;
+using Shop.Application.Extentions;
+using Shop.Application.Interfaces;
+using Shop.Application.Utils;
 using Shop.Domain.Interfaces;
 using Shop.Domain.Models.Account;
 using Shop.Domain.ViewModels.Account;
@@ -86,6 +89,65 @@ public class UserService : IUserService
     public async Task<User> GetUserById(long userId)
     {
         return await _userRepository.GetUserById(userId);
+    }
+
+    #endregion
+
+    #region profile
+
+    public async Task<EditUserProfileViewModel> GetEditUserprofile(long userId)
+    {
+        var user = await _userRepository.GetUserById(userId);
+        if (user == null) return null;
+        return new EditUserProfileViewModel()
+        {
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            PhoneNumber = user.PhoneNumber,
+            UserGender = user.UserGender
+        };
+
+    }
+
+    public async Task<EditUserProfileResult> EditProfile(long userId, IFormFile userAvatar,
+        EditUserProfileViewModel editUserProfile)
+    {
+        var user = await _userRepository.GetUserById(userId);
+        if (user == null) return EditUserProfileResult.NotFound;
+        user.FirstName = editUserProfile.FirstName;
+        user.LastName = editUserProfile.LastName;
+        user.UserGender = editUserProfile.UserGender;
+
+        if (userAvatar != null && userAvatar.IsImage())
+        {
+            var imageName = Guid.NewGuid().ToString("N") + Path.GetExtension(userAvatar.FileName);
+            userAvatar.AddImageToServer(imageName, PathExtension.UserAvatarOriginServer, 150, 150,
+                PathExtension.UserAvatarThumbServer);
+            user.Avatar = imageName;
+        }
+        _userRepository.UpdateUser(user);
+        await _userRepository.SaveChanges();
+        return EditUserProfileResult.Success;
+    }
+
+    public async Task<ChangePasswordResult> ChangePassword(long userId, ChangePasswordViewModel changePassword)
+    {
+        var user = await _userRepository.GetUserById(userId);
+        if (user != null)
+        {
+            var newPassword = _passwordHelper.EncodePasswordMd5(changePassword.NewPassword);
+            if (user.Password != newPassword)
+            {
+                user.Password = newPassword;
+                _userRepository.UpdateUser(user);
+                await _userRepository.SaveChanges();
+                return ChangePasswordResult.Success;
+            }
+
+            return ChangePasswordResult.PasswordEqual;
+        }
+
+        return ChangePasswordResult.NotFound;
     }
 
     #endregion
