@@ -1,28 +1,49 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shop.Application.Interfaces;
+using System.Threading.Tasks;
 using Shop.Web.Extensions;
 
-namespace Shop.Web.Areas.User.ViewComponents;
-
-public class UserViewComponent : ViewComponent
+namespace Shop.Web.Areas.User.ViewComponents
 {
-     #region constractor
+    public class UserSideBarViewComponent:ViewComponent
+    {
+        #region constrator
+        private readonly IUserService _userService;
+        public UserSideBarViewComponent(IUserService userService)
+        {
+            _userService = userService;
+        }
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = await _userService.GetUserById(User.GetUserId());
+                return View("UserSideBar", user);
+            }
 
-     private readonly IUserService _userService;
-     public UserViewComponent(IUserService userService)
-     {
-          _userService = userService;
-     }
+            return View("UserSideBar");
+        }
+        #endregion
+    }
 
-     public async Task<IViewComponentResult> InvokeAsync()
-     {
-          if (User.Identity.IsAuthenticated)
-          {
-               var user = await _userService.GetUserById(User.GetUserId());
-               return View("UserSideBar",user);
+    public class UserInformationViewComponent : ViewComponent
+    {
+        #region constrator
+        private readonly IUserService _userService;
+        public UserInformationViewComponent(IUserService userService)
+        {
+            _userService = userService;
+        }
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = await _userService.GetUserById(User.GetUserId());
+                return View("UserInformation", user);
+            }
 
-
-          }
-     }
-     #endregion
+            return View("UserInformation");
+        }
+        #endregion
+    }
 }
