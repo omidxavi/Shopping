@@ -265,8 +265,10 @@ E:\Code Repository\practice\shop\Shop.Web\bin\Debug\net7.0\ru\Microsoft.CodeAnal
 E:\Code Repository\practice\shop\Shop.Web\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\Code Repository\practice\shop\Shop.Web\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\Code Repository\practice\shop\Shop.Web\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\Code Repository\practice\shop\Shop.Web\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-E:\Code Repository\practice\shop\Shop.Web\bin\Debug\net7.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-E:\Code Repository\practice\shop\Shop.Web\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 E:\Code Repository\practice\shop\Shop.Web\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 E:\Code Repository\practice\shop\Shop.Web\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+E:\Code Repository\practice\shop\Shop.Web\bin\Debug\net7.0\SixLabors.Fonts.dll
+E:\Code Repository\practice\shop\Shop.Web\bin\Debug\net7.0\SixLabors.ImageSharp.dll
+E:\Code Repository\practice\shop\Shop.Web\bin\Debug\net7.0\SixLabors.ImageSharp.Drawing.dll
+E:\Code Repository\practice\shop\Shop.Web\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+E:\Code Repository\practice\shop\Shop.Web\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll

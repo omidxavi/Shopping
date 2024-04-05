@@ -1,10 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Shop.Domain.Models.Account.BaseEntities;
+using Shop.Domain.Models.Wallet;
 
 namespace Shop.Domain.Models.Account;
 
 public class User : BaseEntity
 {
+
+    #region properties
+
     [Display(Name = "نام")]
     [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
     [MaxLength(200, ErrorMessage = "نمیتواند بیشتر از {1} کاراکتر باشد {0}")]
@@ -45,6 +49,14 @@ public class User : BaseEntity
 
     [Display(Name = "جنسیت")] 
     public UserGender UserGender { get; set; }
+
+    #endregion
+
+    #region relations
+
+    public ICollection<UserWallet> UserWallets { get; set; }
+
+    #endregion
 }
 
 public enum UserGender

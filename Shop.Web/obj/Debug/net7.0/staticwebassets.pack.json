@@ -7377,6 +7377,106 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\css\\Vazir-FD.css",
+      "PackagePath": "staticwebassets\\userPanel\\css\\Vazir-FD.css"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\css\\account.css",
+      "PackagePath": "staticwebassets\\userPanel\\css\\account.css"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\css\\animate.css",
+      "PackagePath": "staticwebassets\\userPanel\\css\\animate.css"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\userPanel\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\css\\classy-nav.min.css",
+      "PackagePath": "staticwebassets\\userPanel\\css\\classy-nav.min.css"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\css\\icofont.min.css",
+      "PackagePath": "staticwebassets\\userPanel\\css\\icofont.min.css"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\css\\magnific-popup.css",
+      "PackagePath": "staticwebassets\\userPanel\\css\\magnific-popup.css"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\css\\material-design-iconic-font.min.css",
+      "PackagePath": "staticwebassets\\userPanel\\css\\material-design-iconic-font.min.css"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\css\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\userPanel\\css\\owl.carousel.css"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\css\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\userPanel\\css\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\css\\responsive.css",
+      "PackagePath": "staticwebassets\\userPanel\\css\\responsive.css"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\css\\rtl.css",
+      "PackagePath": "staticwebassets\\userPanel\\css\\rtl.css"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\css\\style.css",
+      "PackagePath": "staticwebassets\\userPanel\\css\\style.css"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\userPanel\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\js\\classy-nav.min.js",
+      "PackagePath": "staticwebassets\\userPanel\\js\\classy-nav.min.js"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\js\\contact-form-script.js",
+      "PackagePath": "staticwebassets\\userPanel\\js\\contact-form-script.js"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\js\\edufield-map.js",
+      "PackagePath": "staticwebassets\\userPanel\\js\\edufield-map.js"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\js\\form-validator.min.js",
+      "PackagePath": "staticwebassets\\userPanel\\js\\form-validator.min.js"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\js\\jquery.counterup.min.js",
+      "PackagePath": "staticwebassets\\userPanel\\js\\jquery.counterup.min.js"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\js\\jquery.magnific-popup.min.js",
+      "PackagePath": "staticwebassets\\userPanel\\js\\jquery.magnific-popup.min.js"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\userPanel\\js\\jquery.min.js"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\js\\main.js",
+      "PackagePath": "staticwebassets\\userPanel\\js\\main.js"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\js\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\userPanel\\js\\owl.carousel.min.js"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\js\\popper.min.js",
+      "PackagePath": "staticwebassets\\userPanel\\js\\popper.min.js"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\userPanel\\js\\waypoints.min.js",
+      "PackagePath": "staticwebassets\\userPanel\\js\\waypoints.min.js"
+    },
+    {
       "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\vendor\\font-awesome\\css\\all.min.css",
       "PackagePath": "staticwebassets\\vendor\\font-awesome\\css\\all.min.css"
     },
