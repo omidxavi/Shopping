@@ -27,6 +27,7 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.12" />
     </ItemGroup>
 
     <ItemGroup>
@@ -1787,6 +1788,25 @@
       <_ContentIncludedByDefault Remove="wwwroot\vendor\line-awesome\line-awesome\line-awesome\fonts\line-awesomeeb4feb4feb4f.ttf" />
       <_ContentIncludedByDefault Remove="wwwroot\vendor\line-awesome\line-awesome\line-awesome\fonts\line-awesomeeb4feb4feb4f.woff" />
       <_ContentIncludedByDefault Remove="wwwroot\vendor\line-awesome\line-awesome\line-awesome\fonts\line-awesomeeb4feb4feb4f.woff2" />
+      <_ContentIncludedByDefault Remove="wwwroot\userPanel\css\account.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\userPanel\css\animate.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\userPanel\css\bootstrap.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\userPanel\css\classy-nav.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\userPanel\css\icofont.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\userPanel\css\magnific-popup.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\userPanel\css\material-design-iconic-font.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\userPanel\css\owl.carousel.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\userPanel\css\owl.theme.default.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\userPanel\css\responsive.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\userPanel\css\rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\userPanel\css\style.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\userPanel\css\Vazir-FD.css" />
+      <_ContentIncludedByDefault Remove="Areas\User\Views\Shared\Components\SiteHeader\SiteHeader.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Areas\User\Views\Shared\" />
+      <Folder Include="wwwroot\userPanel\" />
     </ItemGroup>
 
 </Project>

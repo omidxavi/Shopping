@@ -83,5 +83,10 @@ public class UserService : IUserService
         return ActiveAccountResult.Error;
     }
 
+    public async Task<User> GetUserById(long userId)
+    {
+        return await _userRepository.GetUserById(userId);
+    }
+
     #endregion
 }

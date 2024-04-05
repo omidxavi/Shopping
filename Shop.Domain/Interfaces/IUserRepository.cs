@@ -12,6 +12,7 @@ public interface IUserRepository
     Task<User> GetUserByPhoneNumber(string phoneNumber);
 
     void UpdateUser(User user);
+    Task<User> GetUserById(long userId);
 
     #endregion
 

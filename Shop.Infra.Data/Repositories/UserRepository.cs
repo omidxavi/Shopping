@@ -40,6 +40,11 @@ public class UserRepository : IUserRepository
         _context.Users.Update(user);
     }
 
+    public async Task<User> GetUserById(long userId)
+    {
+        return await _context.Users.AsQueryable().SingleOrDefaultAsync(c => c.Id == userId);
+    }
+
     public async Task SaveChanges()
     {
         await _context.SaveChangesAsync();

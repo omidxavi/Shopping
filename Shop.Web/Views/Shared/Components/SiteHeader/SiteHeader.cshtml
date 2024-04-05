@@ -24,12 +24,11 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li>
-                                <a asp-controller="Account" asp-action="Login">@user.GetUserName() </a>
+                                <a asp-area="User" asp-controller="Home" asp-action="Index">@user.GetUserName() </a>
                             </li>
                             <li>
                                 <a asp-controller="Account" asp-action="LogOut"> خروج</a>
                             </li>
-
                         }
                         else
                         {
