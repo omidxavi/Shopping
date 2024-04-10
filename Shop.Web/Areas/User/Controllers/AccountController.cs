@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Shop.Application.Interfaces;
 using Shop.Domain.ViewModels.Account;
+using Shop.Domain.ViewModels.Wallet;
 using Shop.Web.Extensions;
+using ZarinpalSandbox;
 
 namespace Shop.Web.Areas.User.Controllers;
 
@@ -11,10 +13,14 @@ public class AccountController : UserBaseController
     #region constractor
 
     private readonly IUserService _userService;
+    private readonly IWalletService _walletService;
+    private readonly IConfiguration _configuration;
 
-    public AccountController(IUserService userService)
+    public AccountController(IUserService userService, IWalletService walletService, IConfiguration configuration)
     {
         _userService = userService;
+        _walletService = walletService;
+        _configuration = configuration;
     }
 
     #endregion
@@ -82,6 +88,78 @@ public class AccountController : UserBaseController
         }
 
         return View(changePassword);
+    }
+
+    #endregion
+
+    #region charge account
+
+    [HttpGet("charge-wallet")]
+    public async Task<IActionResult> ChargeWallet()
+    {
+        //show transaction list for user 
+        return View();
+    }
+
+    [HttpPost("charge-wallet"), ValidateAntiForgeryToken]
+    public async Task<IActionResult> ChargeWallet(ChargeWalletViewModel chargeWallet)
+    {
+        if (ModelState.IsValid)
+        {
+            var walletId = await _walletService.ChargeWallet(User.GetUserId(), chargeWallet,
+                $"charge value {chargeWallet.Amount}");
+
+            #region payment
+
+            var payment = new Payment(chargeWallet.Amount);
+            var url = _configuration.GetSection("DefaultUrl")["Host"] + "/user/online-payment/" + walletId;
+            var result = payment.PaymentRequest("شارژ کیف پول", url);
+            if (result.Result.Status == 100)
+            {
+                return Redirect("https://sandbox.zarinpal.com/pg/StartPay/");
+            }
+            else
+            {
+                TempData[ErrorMessage] = "مشکلی پیش امده لطفا مجدد امتحان فرمایید";
+            }
+
+            #endregion
+        }
+
+        return View();
+    }
+
+    #endregion
+
+    #region online paymeny
+
+    [HttpGet("online-payment/{id}")]
+    public async Task<IActionResult> OnlinePayment(long id)
+    {
+        if (HttpContext.Request.Query["Status"] != "" && HttpContext.Request.Query["Status"].ToString().ToLower() ==
+                                                      "ok"
+                                                      && HttpContext.Request.Query["Authority"] != "")
+        {
+            string authority = HttpContext.Request.Query["Authority"];
+            var wallet = await _walletService.GetUserWalletById(id);
+            if (wallet != null)
+            {
+                var payment = new Payment(wallet.Amount);
+                var result = payment.Verification(authority).Result;
+                if (result.Status == 100)
+                {
+                    ViewBag.RefId = result.RefId;
+                    ViewBag.Success = true;
+                    await _walletService.UpdateWalletForCharge(wallet);
+                }
+
+                return View();
+            }
+
+            return NotFound();
+        }
+
+        return View();
     }
 
     #endregion

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore.Internal;
 using Shop.Application.Interfaces;
 using Shop.Application.Services;
 using Shop.Domain.Interfaces;
+using Shop.Domain.Models.Wallet;
 using Shop.Infra.Data.Context;
 using Shop.Infra.Data.Repositories;
 using Shop.Infra.Ioc;
@@ -52,6 +53,8 @@ builder.Services.AddScoped<IPasswordHelper, PasswordHelper>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ISmsService, SmsService>();
+builder.Services.AddScoped<IWalletService, WalletService>();
+builder.Services.AddScoped<IWalletRepository, WalletRepository>();
 builder.Services.AddHttpClient<ICaptchaValidator, GoogleReCaptchaValidator>();
 
 #endregion
