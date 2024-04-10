@@ -163,4 +163,16 @@ public class AccountController : UserBaseController
     }
 
     #endregion
+
+    #region user wallet
+
+    [HttpGet("user-wallet")]
+    public async Task<IActionResult> UserWallet(FilterWalletViewModel filter)
+    {
+        filter.UserId = User.GetUserId();
+        
+        return View(await _walletService.FilterWallets(filter));
+    }
+
+    #endregion
 }

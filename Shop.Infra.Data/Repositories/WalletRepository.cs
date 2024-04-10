@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Shop.Domain.Interfaces;
 using Shop.Domain.Models.Wallet;
+using Shop.Domain.ViewModels.Paging;
 using Shop.Domain.ViewModels.Wallet;
 using Shop.Infra.Data.Context;
 
@@ -35,6 +36,28 @@ public class WalletRepository : IWalletRepository
     public void UpdateWallet(UserWallet wallet)
     {
         _context.UserWallets.Update(wallet);
+    }
+
+    public async Task<FilterWalletViewModel> FilterWallets(FilterWalletViewModel filter)
+    {
+        var query = _context.UserWallets.AsQueryable();
+
+        #region filter
+
+        if (filter.UserId !=0 && filter.UserId != null)
+        {
+            query = query.Where(c => c.UserId == filter.UserId);
+        }
+        #endregion
+
+        #region paging
+
+        var pager = Pager.Build(filter.PageId, await query.CountAsync(), filter.TakeEntity,
+            filter.CountForShowAfterAndBefore);
+        var allData = await query.Paging(pager).ToListAsync();
+        return filter.SetPaging(pager).SetWallets(allData);
+
+        #endregion
     }
 
 

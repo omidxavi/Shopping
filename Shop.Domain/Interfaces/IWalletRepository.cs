@@ -8,5 +8,8 @@ public interface IWalletRepository
     Task CreateWallet(UserWallet userWallet);
     Task<UserWallet> GetUserWalletById(long walletId);
     void UpdateWallet(UserWallet wallet);
+    
+    Task<FilterWalletViewModel> FilterWallets(FilterWalletViewModel filter);
+
     Task SaveChange();
 }

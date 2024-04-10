@@ -10,3 +10,7 @@
         message: decodeURI(text)
     });
 }
+function FillPageId(pageId){
+    $("#pageId").val(pageId);
+    $("filter-Form").submit();
+}
