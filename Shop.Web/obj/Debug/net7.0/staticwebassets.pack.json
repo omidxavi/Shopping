@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\Shop.Web.bundle.scp.css"
     },
     {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\admin\\css\\custom.css",
+      "PackagePath": "staticwebassets\\admin\\css\\custom.css"
+    },
+    {
+      "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\admin\\js\\custom.js",
+      "PackagePath": "staticwebassets\\admin\\js\\custom.js"
+    },
+    {
       "Id": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\css\\bootstrap-rtl.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap-rtl.min.css"
     },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9XM3090LY9Skd2mtK77Hvcs8KlDOkjZnYJDw0uqPWYs=",
+  "Hash": "DkkOD67kaL31u0pEt/rEImdCwRh08L8N8GxKqE0/kfs=",
   "Source": "Shop.Web",
   "BasePath": "_content/Shop.Web",
   "Mode": "Default",
@@ -49,6 +49,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Code Repository\\practice\\shop\\Shop.Web\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Shop.Web.bundle.scp.css"
+    },
+    {
+      "Identity": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\admin\\css\\custom.css",
+      "SourceId": "Shop.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\",
+      "BasePath": "_content/Shop.Web",
+      "RelativePath": "admin/css/custom.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\css\\custom.css"
+    },
+    {
+      "Identity": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\admin\\js\\custom.js",
+      "SourceId": "Shop.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\",
+      "BasePath": "_content/Shop.Web",
+      "RelativePath": "admin/js/custom.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\js\\custom.js"
     },
     {
       "Identity": "E:\\Code Repository\\practice\\shop\\Shop.Web\\wwwroot\\css\\bootstrap-rtl.min.css",
